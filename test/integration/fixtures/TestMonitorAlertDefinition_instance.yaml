@@ -14,8 +14,8 @@ interactions:
     url: https://api.linode.com/v4beta/monitor/alert-definitions?page=1
     method: GET
   response:
-    body: '{"pages": 1, "page": 1, "results": 6, "data": [{"id": 10000, "label": "High
-      Memory Usage Plan Dedicated", "description": "Alert triggers when dedicated
+    body: '{"pages": 1, "page": 1, "results": 14, "data": [{"id": 10000, "label":
+      "High Memory Usage Plan Dedicated", "description": "Alert triggers when dedicated
       plan nodes consistently reach critical memory usage, risking application performance
       degradation.", "service_type": "dbaas", "type": "system", "scope": "entity",
       "class": "dedicated", "regions": [], "status": "enabled", "entity_ids": [],
@@ -30,7 +30,7 @@ interactions:
       Plan Shared", "description": "Alert triggers when shared plan nodes consistently
       reach critical memory usage, risking application performance degradation.",
       "service_type": "dbaas", "type": "system", "scope": "entity", "class": "shared",
-      "regions": [], "status": "enabled", "entity_ids": [], "has_more_resources":
+      "regions": [], "status": "enabled", "entity_ids": ["389481", "395222"], "has_more_resources":
       false, "severity": 2, "rule_criteria": {"rules": [{"label": "Memory Usage",
       "metric": "memory_usage", "unit": "percent", "aggregate_function": "avg", "operator":
       "gt", "threshold": 90, "dimension_filters": []}]}, "alert_channels": [{"id":
@@ -54,12 +54,12 @@ interactions:
       "description": "Alert triggers when shared plan nodes consistently exceed high
       CPU utilization, indicating potential performance issues.", "service_type":
       "dbaas", "type": "system", "scope": "entity", "class": "shared", "regions":
-      [], "status": "enabled", "entity_ids": [], "has_more_resources": false, "severity":
-      2, "rule_criteria": {"rules": [{"label": "CPU Usage", "metric": "cpu_usage",
-      "unit": "percent", "aggregate_function": "avg", "operator": "gt", "threshold":
-      90, "dimension_filters": []}]}, "alert_channels": [{"id": 10000, "label": "Read-Write
-      Channel", "url": "/monitor/alert-channels/10000", "type": "alert-channels"}],
-      "trigger_conditions": {"criteria_condition": "ALL", "polling_interval_seconds":
+      [], "status": "enabled", "entity_ids": ["389481", "395222"], "has_more_resources":
+      false, "severity": 2, "rule_criteria": {"rules": [{"label": "CPU Usage", "metric":
+      "cpu_usage", "unit": "percent", "aggregate_function": "avg", "operator": "gt",
+      "threshold": 90, "dimension_filters": []}]}, "alert_channels": [{"id": 10000,
+      "label": "Read-Write Channel", "url": "/monitor/alert-channels/10000", "type":
+      "alert-channels"}], "trigger_conditions": {"criteria_condition": "ALL", "polling_interval_seconds":
       300, "evaluation_period_seconds": 300, "trigger_occurrences": 3}, "created":
       "2018-01-02T03:04:05", "updated": "2018-01-02T03:04:05", "created_by": "system",
       "updated_by": "system"}, {"id": 10004, "label": "High Disk Usage Plan Dedicated",
@@ -77,15 +77,107 @@ interactions:
       10005, "label": "High Disk Usage Plan Shared", "description": "Alert triggers
       when shared plan nodes experience sustained high disk usage, risking immediate
       resource exhaustion.", "service_type": "dbaas", "type": "system", "scope": "entity",
-      "class": "shared", "regions": [], "status": "enabled", "entity_ids": [], "has_more_resources":
-      false, "severity": 2, "rule_criteria": {"rules": [{"label": "Disk Space Usage",
-      "metric": "disk_usage", "unit": "percent", "aggregate_function": "avg", "operator":
-      "gt", "threshold": 90, "dimension_filters": []}]}, "alert_channels": [{"id":
-      10000, "label": "Read-Write Channel", "url": "/monitor/alert-channels/10000",
+      "class": "shared", "regions": [], "status": "enabled", "entity_ids": ["389481",
+      "395222"], "has_more_resources": false, "severity": 2, "rule_criteria": {"rules":
+      [{"label": "Disk Space Usage", "metric": "disk_usage", "unit": "percent", "aggregate_function":
+      "avg", "operator": "gt", "threshold": 90, "dimension_filters": []}]}, "alert_channels":
+      [{"id": 10000, "label": "Read-Write Channel", "url": "/monitor/alert-channels/10000",
       "type": "alert-channels"}], "trigger_conditions": {"criteria_condition": "ALL",
       "polling_interval_seconds": 300, "evaluation_period_seconds": 300, "trigger_occurrences":
       3}, "created": "2018-01-02T03:04:05", "updated": "2018-01-02T03:04:05", "created_by":
-      "system", "updated_by": "system"}]}'
+      "system", "updated_by": "system"}, {"id": 10550, "label": "ansible-test-220883203",
+      "description": "An alert definition for ansible test", "service_type": "dbaas",
+      "type": "user", "scope": "entity", "class": null, "regions": [], "status": "enabled",
+      "entity_ids": [], "has_more_resources": false, "severity": 1, "rule_criteria":
+      {"rules": [{"label": "Memory Usage", "metric": "memory_usage", "unit": "percent",
+      "aggregate_function": "avg", "operator": "gt", "threshold": 90.0, "dimension_filters":
+      [{"label": "Node Type", "dimension_label": "node_type", "operator": "eq", "value":
+      "primary"}]}]}, "alert_channels": [{"id": 10000, "label": "Read-Write Channel",
+      "url": "/monitor/alert-channels/10000", "type": "alert-channels"}], "trigger_conditions":
+      {"criteria_condition": "ALL", "polling_interval_seconds": 300, "evaluation_period_seconds":
+      300, "trigger_occurrences": 1}, "created": "2018-01-02T03:04:05", "updated":
+      "2018-01-02T03:04:05", "created_by": "ychen123", "updated_by": "ychen123"},
+      {"id": 10551, "label": "ansible-test-826575525", "description": "An alert definition
+      for ansible test", "service_type": "dbaas", "type": "user", "scope": "entity",
+      "class": null, "regions": [], "status": "enabled", "entity_ids": [], "has_more_resources":
+      false, "severity": 1, "rule_criteria": {"rules": [{"label": "Memory Usage",
+      "metric": "memory_usage", "unit": "percent", "aggregate_function": "avg", "operator":
+      "gt", "threshold": 90.0, "dimension_filters": [{"label": "Node Type", "dimension_label":
+      "node_type", "operator": "eq", "value": "primary"}]}]}, "alert_channels": [{"id":
+      10000, "label": "Read-Write Channel", "url": "/monitor/alert-channels/10000",
+      "type": "alert-channels"}], "trigger_conditions": {"criteria_condition": "ALL",
+      "polling_interval_seconds": 300, "evaluation_period_seconds": 300, "trigger_occurrences":
+      1}, "created": "2018-01-02T03:04:05", "updated": "2018-01-02T03:04:05", "created_by":
+      "ychen123", "updated_by": "ychen123"}, {"id": 10552, "label": "ansible-test-375711107",
+      "description": "An alert definition for ansible test", "service_type": "dbaas",
+      "type": "user", "scope": "entity", "class": null, "regions": [], "status": "enabled",
+      "entity_ids": [], "has_more_resources": false, "severity": 1, "rule_criteria":
+      {"rules": [{"label": "Memory Usage", "metric": "memory_usage", "unit": "percent",
+      "aggregate_function": "avg", "operator": "gt", "threshold": 90.0, "dimension_filters":
+      [{"label": "Node Type", "dimension_label": "node_type", "operator": "eq", "value":
+      "primary"}]}]}, "alert_channels": [{"id": 10000, "label": "Read-Write Channel",
+      "url": "/monitor/alert-channels/10000", "type": "alert-channels"}], "trigger_conditions":
+      {"criteria_condition": "ALL", "polling_interval_seconds": 300, "evaluation_period_seconds":
+      300, "trigger_occurrences": 1}, "created": "2018-01-02T03:04:05", "updated":
+      "2018-01-02T03:04:05", "created_by": "ychen123", "updated_by": "ychen123"},
+      {"id": 10553, "label": "ansible-test-657347537", "description": "An alert definition
+      for ansible test", "service_type": "dbaas", "type": "user", "scope": "entity",
+      "class": null, "regions": [], "status": "enabled", "entity_ids": [], "has_more_resources":
+      false, "severity": 1, "rule_criteria": {"rules": [{"label": "Memory Usage",
+      "metric": "memory_usage", "unit": "percent", "aggregate_function": "avg", "operator":
+      "gt", "threshold": 90.0, "dimension_filters": [{"label": "Node Type", "dimension_label":
+      "node_type", "operator": "eq", "value": "primary"}]}]}, "alert_channels": [{"id":
+      10000, "label": "Read-Write Channel", "url": "/monitor/alert-channels/10000",
+      "type": "alert-channels"}], "trigger_conditions": {"criteria_condition": "ALL",
+      "polling_interval_seconds": 300, "evaluation_period_seconds": 300, "trigger_occurrences":
+      1}, "created": "2018-01-02T03:04:05", "updated": "2018-01-02T03:04:05", "created_by":
+      "ychen123", "updated_by": "ychen123"}, {"id": 10554, "label": "ansible-test-534545596",
+      "description": "An alert definition for ansible test", "service_type": "dbaas",
+      "type": "user", "scope": "entity", "class": null, "regions": [], "status": "enabled",
+      "entity_ids": [], "has_more_resources": false, "severity": 1, "rule_criteria":
+      {"rules": [{"label": "Memory Usage", "metric": "memory_usage", "unit": "percent",
+      "aggregate_function": "avg", "operator": "gt", "threshold": 90.0, "dimension_filters":
+      [{"label": "Node Type", "dimension_label": "node_type", "operator": "eq", "value":
+      "primary"}]}]}, "alert_channels": [{"id": 10000, "label": "Read-Write Channel",
+      "url": "/monitor/alert-channels/10000", "type": "alert-channels"}], "trigger_conditions":
+      {"criteria_condition": "ALL", "polling_interval_seconds": 300, "evaluation_period_seconds":
+      300, "trigger_occurrences": 1}, "created": "2018-01-02T03:04:05", "updated":
+      "2018-01-02T03:04:05", "created_by": "ychen123", "updated_by": "ychen123"},
+      {"id": 10555, "label": "ansible-test-642881759", "description": "An alert definition
+      for ansible test", "service_type": "dbaas", "type": "user", "scope": "entity",
+      "class": null, "regions": [], "status": "enabled", "entity_ids": [], "has_more_resources":
+      false, "severity": 1, "rule_criteria": {"rules": [{"label": "Memory Usage",
+      "metric": "memory_usage", "unit": "percent", "aggregate_function": "avg", "operator":
+      "gt", "threshold": 90.0, "dimension_filters": [{"label": "Node Type", "dimension_label":
+      "node_type", "operator": "eq", "value": "primary"}]}]}, "alert_channels": [{"id":
+      10000, "label": "Read-Write Channel", "url": "/monitor/alert-channels/10000",
+      "type": "alert-channels"}], "trigger_conditions": {"criteria_condition": "ALL",
+      "polling_interval_seconds": 300, "evaluation_period_seconds": 300, "trigger_occurrences":
+      1}, "created": "2018-01-02T03:04:05", "updated": "2018-01-02T03:04:05", "created_by":
+      "ychen123", "updated_by": "ychen123"}, {"id": 10556, "label": "ansible-test-656673869",
+      "description": "An alert definition for ansible test", "service_type": "dbaas",
+      "type": "user", "scope": "entity", "class": null, "regions": [], "status": "enabled",
+      "entity_ids": [], "has_more_resources": false, "severity": 1, "rule_criteria":
+      {"rules": [{"label": "Memory Usage", "metric": "memory_usage", "unit": "percent",
+      "aggregate_function": "avg", "operator": "gt", "threshold": 90.0, "dimension_filters":
+      [{"label": "Node Type", "dimension_label": "node_type", "operator": "eq", "value":
+      "primary"}]}]}, "alert_channels": [{"id": 10000, "label": "Read-Write Channel",
+      "url": "/monitor/alert-channels/10000", "type": "alert-channels"}], "trigger_conditions":
+      {"criteria_condition": "ALL", "polling_interval_seconds": 300, "evaluation_period_seconds":
+      300, "trigger_occurrences": 1}, "created": "2018-01-02T03:04:05", "updated":
+      "2018-01-02T03:04:05", "created_by": "ychen123", "updated_by": "ychen123"},
+      {"id": 10557, "label": "ansible-test-295829242", "description": "An alert definition
+      for ansible test", "service_type": "dbaas", "type": "user", "scope": "entity",
+      "class": null, "regions": [], "status": "enabled", "entity_ids": [], "has_more_resources":
+      false, "severity": 1, "rule_criteria": {"rules": [{"label": "Memory Usage",
+      "metric": "memory_usage", "unit": "percent", "aggregate_function": "avg", "operator":
+      "gt", "threshold": 90.0, "dimension_filters": [{"label": "Node Type", "dimension_label":
+      "node_type", "operator": "eq", "value": "primary"}]}]}, "alert_channels": [{"id":
+      10000, "label": "Read-Write Channel", "url": "/monitor/alert-channels/10000",
+      "type": "alert-channels"}], "trigger_conditions": {"criteria_condition": "ALL",
+      "polling_interval_seconds": 300, "evaluation_period_seconds": 300, "trigger_occurrences":
+      1}, "created": "2018-01-02T03:04:05", "updated": "2018-01-02T03:04:05", "created_by":
+      "ychen123", "updated_by": "ychen123"}]}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -108,7 +200,7 @@ interactions:
       Content-Type:
       - application/json
       Expires:
-      - Mon, 08 Dec 2025 16:43:45 GMT
+      - Fri, 19 Dec 2025 16:36:22 GMT
       Pragma:
       - no-cache
       Strict-Transport-Security:
@@ -134,8 +226,7 @@ interactions:
     code: 200
     duration: ""
 - request:
-    body: '{"service_type":"","label":"go-test-alert-definition-create","severity":2,"channel_ids":[10000],"rule_criteria":{"rules":[{"aggregate_function":"avg","dimension_filters":[{"dimension_label":"node_type","label":"Node
-      Type","operator":"eq","value":"primary"}],"label":"Memory Usage","metric":"memory_usage","operator":"gt","threshold":90,"unit":"percent"}]},"trigger_conditions":{"criteria_condition":"ALL","evaluation_period_seconds":300,"polling_interval_seconds":300,"trigger_occurrences":1},"description":"Test
+    body: '{"label":"go-test-alert-definition-create","severity":2,"channel_ids":[10000],"rule_criteria":{"rules":[{"aggregate_function":"avg","dimension_filters":[{"dimension_label":"node_type","operator":"eq","value":"primary"}],"metric":"memory_usage","operator":"gt","threshold":90}]},"trigger_conditions":{"criteria_condition":"ALL","evaluation_period_seconds":300,"polling_interval_seconds":300,"trigger_occurrences":1},"description":"Test
       alert definition creation"}'
     form: {}
     headers:
@@ -148,10 +239,10 @@ interactions:
     url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions
     method: POST
   response:
-    body: '{"id": 10549, "label": "go-test-alert-definition-create", "description":
+    body: '{"id": 10620, "label": "go-test-alert-definition-create", "description":
       "Test alert definition creation", "service_type": "dbaas", "type": "user", "scope":
-      "entity", "class": null, "regions": [], "status": "in progress", "entity_ids":
-      [], "has_more_resources": false, "severity": 2, "rule_criteria": {"rules": [{"label":
+      "entity", "class": null, "regions": [], "status": "enabled", "entity_ids": [],
+      "has_more_resources": false, "severity": 2, "rule_criteria": {"rules": [{"label":
       "Memory Usage", "metric": "memory_usage", "unit": "percent", "aggregate_function":
       "avg", "operator": "gt", "threshold": 90, "dimension_filters": [{"label": "Node
       Type", "dimension_label": "node_type", "operator": "eq", "value": "primary"}]}]},
@@ -159,7 +250,7 @@ interactions:
       "type": "alert-channels"}], "trigger_conditions": {"criteria_condition": "ALL",
       "polling_interval_seconds": 300, "evaluation_period_seconds": 300, "trigger_occurrences":
       1}, "created": "2018-01-02T03:04:05", "updated": "2018-01-02T03:04:05", "created_by":
-      "ErikZilber", "updated_by": "ErikZilber"}'
+      "ychen123", "updated_by": "ychen123"}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -182,7 +273,7 @@ interactions:
       Content-Type:
       - application/json
       Expires:
-      - Mon, 08 Dec 2025 16:43:46 GMT
+      - Fri, 19 Dec 2025 16:36:23 GMT
       Pragma:
       - no-cache
       Strict-Transport-Security:
@@ -207,7 +298,7 @@ interactions:
     code: 200
     duration: ""
 - request:
-    body: '{"service_type":"","alert_id":0,"label":"go-test-alert-definition-create-updated","severity":2,"channel_ids":[10000],"rule_criteria":{"rules":[{"aggregate_function":"avg","dimension_filters":[{"dimension_label":"node_type","label":"","operator":"eq","value":"primary"}],"metric":"memory_usage","operator":"gt","threshold":90}]},"trigger_conditions":{"criteria_condition":"ALL","evaluation_period_seconds":300,"polling_interval_seconds":300,"trigger_occurrences":1},"description":"Test
+    body: '{"label":"go-test-alert-definition-create-updated","severity":2,"channel_ids":[10000],"rule_criteria":{"rules":[{"aggregate_function":"avg","dimension_filters":[{"dimension_label":"node_type","operator":"eq","value":"primary"}],"metric":"memory_usage","operator":"gt","threshold":90}]},"trigger_conditions":{"criteria_condition":"ALL","evaluation_period_seconds":300,"polling_interval_seconds":300,"trigger_occurrences":1},"description":"Test
       alert definition creation"}'
     form: {}
     headers:
@@ -217,12 +308,12 @@ interactions:
       - application/json
       User-Agent:
       - linodego/dev https://github.com/linode/linodego
-    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10549
+    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10620
     method: PUT
   response:
-    body: '{"id": 10549, "label": "go-test-alert-definition-create-updated", "description":
+    body: '{"id": 10620, "label": "go-test-alert-definition-create-updated", "description":
       "Test alert definition creation", "service_type": "dbaas", "type": "user", "scope":
-      "entity", "class": null, "regions": [], "status": "in progress", "entity_ids":
+      "entity", "class": null, "regions": [], "status": "disabled", "entity_ids":
       [], "has_more_resources": false, "severity": 2, "rule_criteria": {"rules": [{"label":
       "Memory Usage", "metric": "memory_usage", "unit": "percent", "aggregate_function":
       "avg", "operator": "gt", "threshold": 90, "dimension_filters": [{"label": "Node
@@ -231,7 +322,7 @@ interactions:
       "type": "alert-channels"}], "trigger_conditions": {"criteria_condition": "ALL",
       "polling_interval_seconds": 300, "evaluation_period_seconds": 300, "trigger_occurrences":
       1}, "created": "2018-01-02T03:04:05", "updated": "2018-01-02T03:04:05", "created_by":
-      "ErikZilber", "updated_by": "ErikZilber"}'
+      "ychen123", "updated_by": "ychen123"}'
     headers:
       Access-Control-Allow-Credentials:
       - "true"
@@ -254,7 +345,7 @@ interactions:
       Content-Type:
       - application/json
       Expires:
-      - Mon, 08 Dec 2025 16:44:47 GMT
+      - Fri, 19 Dec 2025 16:37:26 GMT
       Pragma:
       - no-cache
       Strict-Transport-Security:
@@ -288,252 +379,7 @@ interactions:
       - application/json
       User-Agent:
       - linodego/dev https://github.com/linode/linodego
-    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10549
-    method: DELETE
-  response:
-    body: '{"errors": [{"reason": "An update to your alert is in progress. Please
-      wait until the update has completed, then try again."}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter
-      Access-Control-Allow-Methods:
-      - HEAD, GET, OPTIONS, POST, PUT, DELETE
-      Access-Control-Allow-Origin:
-      - '*'
-      Akamai-Internal-Account:
-      - '*'
-      Cache-Control:
-      - max-age=0, no-cache, no-store
-      Connection:
-      - keep-alive
-      Content-Length:
-      - "127"
-      Content-Type:
-      - application/json
-      Expires:
-      - Mon, 08 Dec 2025 16:44:47 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=31536000
-      X-Accepted-Oauth-Scopes:
-      - databases:read_only
-      X-Frame-Options:
-      - DENY
-      X-Oauth-Scopes:
-      - '*'
-      X-Ratelimit-Limit:
-      - "1840"
-    status: 400 Bad Request
-    code: 400
-    duration: ""
-- request:
-    body: ""
-    form: {}
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      User-Agent:
-      - linodego/dev https://github.com/linode/linodego
-    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10549
-    method: DELETE
-  response:
-    body: '{"errors": [{"reason": "An update to your alert is in progress. Please
-      wait until the update has completed, then try again."}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter
-      Access-Control-Allow-Methods:
-      - HEAD, GET, OPTIONS, POST, PUT, DELETE
-      Access-Control-Allow-Origin:
-      - '*'
-      Akamai-Internal-Account:
-      - '*'
-      Cache-Control:
-      - max-age=0, no-cache, no-store
-      Connection:
-      - keep-alive
-      Content-Length:
-      - "127"
-      Content-Type:
-      - application/json
-      Expires:
-      - Mon, 08 Dec 2025 16:44:50 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=31536000
-      X-Accepted-Oauth-Scopes:
-      - databases:read_only
-      X-Frame-Options:
-      - DENY
-      X-Oauth-Scopes:
-      - '*'
-      X-Ratelimit-Limit:
-      - "1840"
-    status: 400 Bad Request
-    code: 400
-    duration: ""
-- request:
-    body: ""
-    form: {}
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      User-Agent:
-      - linodego/dev https://github.com/linode/linodego
-    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10549
-    method: DELETE
-  response:
-    body: '{"errors": [{"reason": "An update to your alert is in progress. Please
-      wait until the update has completed, then try again."}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter
-      Access-Control-Allow-Methods:
-      - HEAD, GET, OPTIONS, POST, PUT, DELETE
-      Access-Control-Allow-Origin:
-      - '*'
-      Akamai-Internal-Account:
-      - '*'
-      Cache-Control:
-      - max-age=0, no-cache, no-store
-      Connection:
-      - keep-alive
-      Content-Length:
-      - "127"
-      Content-Type:
-      - application/json
-      Expires:
-      - Mon, 08 Dec 2025 16:44:54 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=31536000
-      X-Accepted-Oauth-Scopes:
-      - databases:read_only
-      X-Frame-Options:
-      - DENY
-      X-Oauth-Scopes:
-      - '*'
-      X-Ratelimit-Limit:
-      - "1840"
-    status: 400 Bad Request
-    code: 400
-    duration: ""
-- request:
-    body: ""
-    form: {}
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      User-Agent:
-      - linodego/dev https://github.com/linode/linodego
-    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10549
-    method: DELETE
-  response:
-    body: '{"errors": [{"reason": "An update to your alert is in progress. Please
-      wait until the update has completed, then try again."}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter
-      Access-Control-Allow-Methods:
-      - HEAD, GET, OPTIONS, POST, PUT, DELETE
-      Access-Control-Allow-Origin:
-      - '*'
-      Akamai-Internal-Account:
-      - '*'
-      Cache-Control:
-      - max-age=0, no-cache, no-store
-      Connection:
-      - keep-alive
-      Content-Length:
-      - "127"
-      Content-Type:
-      - application/json
-      Expires:
-      - Mon, 08 Dec 2025 16:45:03 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=31536000
-      X-Accepted-Oauth-Scopes:
-      - databases:read_only
-      X-Frame-Options:
-      - DENY
-      X-Oauth-Scopes:
-      - '*'
-      X-Ratelimit-Limit:
-      - "1840"
-    status: 400 Bad Request
-    code: 400
-    duration: ""
-- request:
-    body: ""
-    form: {}
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      User-Agent:
-      - linodego/dev https://github.com/linode/linodego
-    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10549
-    method: DELETE
-  response:
-    body: '{"errors": [{"reason": "An update to your alert is in progress. Please
-      wait until the update has completed, then try again."}]}'
-    headers:
-      Access-Control-Allow-Headers:
-      - Authorization, Origin, X-Requested-With, Content-Type, Accept, X-Filter
-      Access-Control-Allow-Methods:
-      - HEAD, GET, OPTIONS, POST, PUT, DELETE
-      Access-Control-Allow-Origin:
-      - '*'
-      Akamai-Internal-Account:
-      - '*'
-      Cache-Control:
-      - max-age=0, no-cache, no-store
-      Connection:
-      - keep-alive
-      Content-Length:
-      - "127"
-      Content-Type:
-      - application/json
-      Expires:
-      - Mon, 08 Dec 2025 16:45:19 GMT
-      Pragma:
-      - no-cache
-      Strict-Transport-Security:
-      - max-age=31536000
-      X-Accepted-Oauth-Scopes:
-      - databases:read_only
-      X-Frame-Options:
-      - DENY
-      X-Oauth-Scopes:
-      - '*'
-      X-Ratelimit-Limit:
-      - "1840"
-    status: 400 Bad Request
-    code: 400
-    duration: ""
-- request:
-    body: ""
-    form: {}
-    headers:
-      Accept:
-      - application/json
-      Content-Type:
-      - application/json
-      User-Agent:
-      - linodego/dev https://github.com/linode/linodego
-    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10549
+    url: https://api.linode.com/v4beta/monitor/services/dbaas/alert-definitions/10620
     method: DELETE
   response:
     body: '{}'
@@ -561,7 +407,7 @@ interactions:
       Content-Type:
       - application/json
       Expires:
-      - Mon, 08 Dec 2025 16:45:50 GMT
+      - Fri, 19 Dec 2025 16:37:27 GMT
       Pragma:
       - no-cache
       Strict-Transport-Security:
